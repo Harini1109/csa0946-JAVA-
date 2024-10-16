@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class HollowSquarePattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the size of the square and symbol from the user
+        System.out.print("Enter the size of the square: ");
+        int n = scanner.nextInt();
+        System.out.print("Enter the symbol to use: ");
+        char symbol = scanner.next().charAt(0);
+
+        // Loop to print the hollow square
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // Print symbol on the borders, else print space
+                if (i == 0 || i == n - 1 || j == 0 || j == n - 1) {
+                    System.out.print(symbol + " ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+        scanner.close();
+    }
+}
