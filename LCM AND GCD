@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class LCMandGCD {
+    // Method to compute GCD using Euclidean algorithm
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    // Method to compute LCM
+    public static int lcm(int a, int b) {
+        return (a * b) / gcd(a, b); // LCM formula: (a*b) / GCD(a, b)
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Take two integers as input
+        System.out.print("Enter first number: ");
+        int num1 = input.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = input.nextInt();
+
+        // Compute GCD and LCM
+        int gcdValue = gcd(num1, num2);
+        int lcmValue = lcm(num1, num2);
+
+        // Display the results
+        System.out.println("GCD of " + num1 + " and " + num2 + " is: " + gcdValue);
+        System.out.println("LCM of " + num1 + " and " + num2 + " is: " + lcmValue);
+
+        input.close(); // Close the scanner to avoid resource leaks
+    }
+}
