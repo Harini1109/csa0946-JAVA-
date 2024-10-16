@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class FibonacciSeries {
+
+    // Method to print the Fibonacci series (both positive and negative)
+    public static void printFibonacci(int n) {
+        int a = 0, b = 1, c;
+
+        // Positive Fibonacci series
+        System.out.println("Positive Fibonacci series:");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + "\t");
+            c = a + b;
+            a = b;
+            b = c;
+        }
+
+        System.out.println("\n");
+
+        // Reset a and b for negative Fibonacci
+        a = 0;
+        b = 1;
+
+        // Negative Fibonacci series
+        System.out.println("Negative Fibonacci series:");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + "\t");
+            c = a - b;  // For negative Fibonacci, use subtraction instead of addition
+            a = b;
+            b = c;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to get user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user to enter the value of n
+        System.out.print("Enter the n value: ");
+        int n = scanner.nextInt();
+
+        // Call the method to print Fibonacci series
+        printFibonacci(n);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
