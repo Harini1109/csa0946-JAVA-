@@ -1,0 +1,24 @@
+public class SquarePattern {
+
+    // Method to print the pattern of squares
+    public static void printSquarePattern(int rows) {
+        int number = 1;  // Starting number
+
+        for (int i = 1; i <= rows; i++) {
+            // For each row, print i numbers
+            for (int j = 1; j <= i; j++) {
+                System.out.print((number * number) + "\t");  // Print the square of the number
+                number++;  // Move to the next number
+            }
+            System.out.println();  // Move to the next line after each row
+        }
+    }
+
+    public static void main(String[] args) {
+        // Define the number of rows for the pattern
+        int rows = 4;
+
+        // Call the method to print the square pattern
+        printSquarePattern(rows);
+    }
+}
