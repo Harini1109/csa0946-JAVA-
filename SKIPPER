@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Skipper {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Reading inputs
+        int m = input.nextInt();  // Starting value
+        int n = input.nextInt();  // Ending value
+        int k = input.nextInt();  // Step size
+        
+        // Looping from m to n and skipping k numbers
+        for (int i = m; i <= n; i += k + 1) {
+            System.out.print(i + " ");
+        }
+        
+        input.close();
+    }
+}
+
