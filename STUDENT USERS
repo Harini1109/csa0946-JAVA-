@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class UserCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the total number of users: ");
+        int totalUsers = sc.nextInt();
+        System.out.print("Enter the total number of staff users: ");
+        int staffUsers = sc.nextInt();
+        int nonTeachingStaffUsers = staffUsers / 3;
+        int totalStaffUsers = staffUsers + nonTeachingStaffUsers;
+        int studentUsers = totalUsers - totalStaffUsers;
+        System.out.println("Student Users: " + studentUsers);
+    }
+}
