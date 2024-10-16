@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class FibonacciEvenIndexSum {
+    public static int evenIndexFibonacciSum(int n) {
+        int a = 0, b = 1;  
+        int sum = 0;
+        for (int i = 0; i <= 2 * n; i++) {
+            if (i % 2 == 0) {
+                sum += a;  
+            }
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+        return sum;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+        int result = evenIndexFibonacciSum(n);
+        System.out.println("Sum of Fibonacci numbers at even indices till 2*N: " + result);
+        scanner.close();
+    }
+}
