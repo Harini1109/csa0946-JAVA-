@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class FactorCounter {
+
+    // Method to count the factors of a given number
+    public static int countFactors(int number) {
+        int count = 0;
+        // Loop through numbers from 1 to the given number
+        for (int i = 1; i <= number; i++) {
+            // If 'i' divides the number exactly, it's a factor
+            if (number % i == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to get user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user to enter a number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // Call the method to count factors and store the result
+        int factors = countFactors(number);
+
+        // Display the number of factors
+        System.out.println("Number of factors = " + factors);
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
