@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Addition_matrix {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int mat1[][] = { {1, 2}, {5, 3} };
+        int mat2[][] = { {2, 3}, {4, 1} };
+        int sum[][] = new int[2][2];  // Declaring a 2D array for storing the sum
+        
+        int len = mat1.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                sum[i][j] = mat1[i][j] + mat2[i][j];  // Summing corresponding elements
+                System.out.print(sum[i][j] + "\t");   // Printing the sum of the element
+            }
+            System.out.println();
+        }
+        
+        input.close();
+    }
+}
