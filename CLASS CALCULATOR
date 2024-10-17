@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    public double divide(int a, int b) {
+        if (b == 0) {
+            System.out.println("Error: Division by zero is not allowed.");
+            return 0;
+        }
+        return (double) a / b;
+    }
+}
+class ScientificCalculator extends Calculator {
+    @Override
+    public int multiply(int a, int b) {
+        int result = a * b;
+        return result + 10;  
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Calculator calc = new Calculator();
+        ScientificCalculator sciCalc = new ScientificCalculator();
+        System.out.println("Enter two integers: ");
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        System.out.println("Basic Calculator:");
+        System.out.println("Addition: " + calc.add(num1, num2));
+        System.out.println("Subtraction: " + calc.subtract(num1, num2));
+        System.out.println("Multiplication: " + calc.multiply(num1, num2));
+        System.out.println("Division: " + calc.divide(num1, num2));
+        System.out.println("\nScientific Calculator (Overridden Multiply Method):");
+        System.out.println("Multiplication with additional complexity: " + sciCalc.multiply(num1, num2));
+        sc.close();
+    }
+}
