@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Car{
+    private String make;
+    private String model;
+    private int year;
+    public Car(String make,String model,int year){
+      this.make=make;
+      this.model=model;
+      this.year=year;
+    }
+    public void Cardetails(){
+        System.out.print("Make:"+make);
+        System.out.print("\nModel:"+model);
+        System.out.print("\nYear:"+year);
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        String make=input.nextLine();
+        String model=input.nextLine();
+        int year=input.nextInt();
+        Car car=new Car(make,model,year);
+        car.Cardetails();
+        input.close();
+    }
+}
