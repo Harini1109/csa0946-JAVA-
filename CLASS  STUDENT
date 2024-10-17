@@ -1,0 +1,64 @@
+1.import java.util.List;
+class Student
+{
+    private String id;
+    private String name;
+    private List<Double>grades;
+    public  Student(String name,String id,List<Double>grades)
+    {
+        this.id=id;
+        this.name=name;
+        this.grades=grades;
+    }
+    public double average()
+    {
+        double sum=0;
+        for(double grade :grades)
+        {
+            sum+=grade;
+        }
+        return sum/grades.size();
+    }
+    public String Letter()
+    {
+        double average=average();
+        if(average>=90)
+        {
+            return "A";
+        }
+        else  if(average>=80)
+        {
+            return "B";
+        }
+        else  if(average>=70)
+        {
+            return "C";
+        }
+        else  if(average>=60)
+        {
+            return "D";
+        }
+        else
+        {
+            return "F";
+        }
+    }
+    public void display()
+    {
+        System.out.print("Name:\t"+name);
+        System.out.print("ID:\t"+id);
+        System.out.print("Average:\t"+average());
+        System.out.print("Letter:\t"+Letter());
+    }
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+        List<Double>grades=List.of(85.0,90.9,87.4,100.0,92.5);
+        Student student=new Student("Hari","s123",grades);
+        student.display();
+    }
+}
+
+
