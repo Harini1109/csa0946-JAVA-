@@ -1,0 +1,69 @@
+class Vehicle {
+    String make;
+    String model;
+    boolean isRented;
+    public Vehicle(String make, String model) {
+        this.make = make;
+        this.model = model;
+        this.isRented = false; 
+    }
+    public void rent() {
+        if (!isRented) {
+            isRented = true;
+            System.out.println(make + " " + model + " has been rented.");
+        } else {
+            System.out.println(make + " " + model + " is already rented.");
+        }
+    }
+    public void returnVehicle() {
+        if (isRented) {
+            isRented = false;
+            System.out.println(make + " " + model + " has been returned.");
+        } else {
+            System.out.println(make + " " + model + " was not rented.");
+        }
+    }
+    public void displayDetails() {
+        System.out.println("Vehicle Make: " + make);
+        System.out.println("Vehicle Model: " + model);
+    }
+}
+
+class Sedan extends Vehicle {
+    int trunkCapacity; 
+    public Sedan(String make, String model, int trunkCapacity) {
+        super(make, model);
+        this.trunkCapacity = trunkCapacity;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Trunk Capacity: " + trunkCapacity + " liters");
+    }
+}
+class SUV extends Vehicle {
+    boolean hasFourWheelDrive; 
+    public SUV(String make, String model, boolean hasFourWheelDrive) {
+        super(make, model);
+        this.hasFourWheelDrive = hasFourWheelDrive;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Four-Wheel Drive: " + (hasFourWheelDrive ? "Yes" : "No"));
+    }
+}
+public class CarRentalSystem {
+    public static void main(String[] args) {
+        Sedan sedan = new Sedan("Toyota", "Camry", 500);
+        SUV suv = new SUV("Ford", "Explorer", true);
+        System.out.println("Sedan Details:");
+        sedan.displayDetails();
+        sedan.rent(); 
+        sedan.returnVehicle(); 
+        System.out.println("\nSUV Details:");
+        suv.displayDetails();
+        suv.rent(); 
+        suv.returnVehicle(); 
+    }
+}
