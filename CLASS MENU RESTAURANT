@@ -1,0 +1,59 @@
+class Menu {
+    String name;
+    double price;
+    public Menu(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+    public void displayDetails() {
+        System.out.println("Item: " + name);
+        System.out.println("Price: $" + price);
+    }
+    public void order() {
+        System.out.println(name + " has been ordered.");
+    }
+}
+class Appetizer extends Menu {
+    String size; 
+    public Appetizer(String name, double price, String size) {
+        super(name, price);
+        this.size = size;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Size: " + size);
+    }
+    public void serveAppetizer() {
+        System.out.println(name + " (" + size + ") is being served as an appetizer.");
+    }
+}
+class Entree extends Menu {
+    boolean isVegetarian; 
+    public Entree(String name, double price, boolean isVegetarian) {
+        super(name, price);
+        this.isVegetarian = isVegetarian;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Vegetarian: " + (isVegetarian ? "Yes" : "No"));
+    }
+    public void serveEntree() {
+        System.out.println(name + " is being served as an entree.");
+    }
+}
+public class RestaurantManagementSystem {
+    public static void main(String[] args) {
+        Appetizer appetizer = new Appetizer("Spring Rolls", 5.99, "Medium");
+        Entree entree = new Entree("Pasta Alfredo", 12.99, true);
+        System.out.println("Appetizer Details:");
+        appetizer.displayDetails();
+        appetizer.order();
+        appetizer.serveAppetizer(); 
+        System.out.println("\nEntree Details:");
+        entree.displayDetails();
+        entree.order();
+        entree.serveEntree(); 
+    }
+}
