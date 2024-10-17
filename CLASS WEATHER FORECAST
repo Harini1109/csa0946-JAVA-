@@ -1,0 +1,66 @@
+import java.time.LocalDate;
+class Forecast {
+    LocalDate date;
+    double temperature;
+    public Forecast(LocalDate date, double temperature) {
+        this.date = date;
+        this.temperature = temperature;
+    }
+    public void displayForecast() {
+        System.out.println("Date: " + date);
+        System.out.println("Temperature: " + temperature + "C");
+    }
+}
+class SunnyForecast extends Forecast {
+    double uvIndex; 
+    public SunnyForecast(LocalDate date, double temperature, double uvIndex) {
+        super(date, temperature);
+        this.uvIndex = uvIndex;
+    }
+    @Override
+    public void displayForecast() {
+        super.displayForecast();
+        System.out.println("UV Index: " + uvIndex);
+        System.out.println("Weather: Sunny");
+    }
+    public void predictOutdoorSafety() {
+        if (uvIndex > 7) {
+            System.out.println("Warning: UV index is high. Limit outdoor activities.");
+        } else {
+            System.out.println("It's safe for outdoor activities.");
+        }
+    }
+}
+class RainyForecast extends Forecast {
+    double rainfall; 
+    public RainyForecast(LocalDate date, double temperature, double rainfall) {
+        super(date, temperature);
+        this.rainfall = rainfall;
+    }
+    @Override
+    public void displayForecast() {
+        super.displayForecast();
+        System.out.println("Rainfall: " + rainfall + " mm");
+        System.out.println("Weather: Rainy");
+    }
+    public void predictRainSeverity() {
+        if (rainfall > 50) {
+            System.out.println("Heavy rainfall expected. Take precautions.");
+        } else {
+            System.out.println("Light rain expected. No severe impact.");
+        }
+    }
+}
+public class WeatherForecastSystem {
+    public static void main(String[] args) {
+        // Creating SunnyForecast and RainyForecast objects
+        SunnyForecast sunnyDay = new SunnyForecast(LocalDate.of(2024, 10, 17), 30, 8.5);
+        RainyForecast rainyDay = new RainyForecast(LocalDate.of(2024, 10, 18), 22, 60);
+        System.out.println("Sunny Forecast:");
+        sunnyDay.displayForecast();
+        sunnyDay.predictOutdoorSafety();
+        System.out.println("\nRainy Forecast:");
+        rainyDay.displayForecast();
+        rainyDay.predictRainSeverity();
+    }
+}
