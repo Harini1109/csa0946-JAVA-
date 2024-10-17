@@ -1,0 +1,68 @@
+class Game {
+    String title;
+    String genre;
+    public Game(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+
+    public void displayDetails() {
+        System.out.println("Game Title: " + title);
+        System.out.println("Genre: " + genre);
+    }
+    public void play() {
+        System.out.println("Starting the game: " + title);
+    }
+}
+class ActionGame extends Game {
+    String difficultyLevel; 
+    public ActionGame(String title, String genre, String difficultyLevel) {
+        super(title, genre);
+        this.difficultyLevel = difficultyLevel;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Difficulty Level: " + difficultyLevel);
+    }
+    @Override
+    public void play() {
+        System.out.println("Playing action-packed game: " + title + " at " + difficultyLevel + " difficulty.");
+    }
+    public void engageCombat() {
+        System.out.println("Engaging in combat in " + title + "!");
+    }
+}
+class PuzzleGame extends Game {
+    int numOfPuzzles; 
+    public PuzzleGame(String title, String genre, int numOfPuzzles) {
+        super(title, genre);
+        this.numOfPuzzles = numOfPuzzles;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Number of Puzzles: " + numOfPuzzles);
+    }
+    @Override
+    public void play() {
+        System.out.println("Solving puzzles in " + title + " with " + numOfPuzzles + " puzzles.");
+    }
+    public void solvePuzzle() {
+        System.out.println("Solving a puzzle in " + title + "...");
+    }
+}
+public class GameSystem {
+    public static void main(String[] args) {
+        ActionGame actionGame = new ActionGame("Warrior's Quest", "Action", "Hard");
+        PuzzleGame puzzleGame = new PuzzleGame("Mystery Solver", "Puzzle", 50);
+        System.out.println("Action Game Details:");
+        actionGame.displayDetails();
+        actionGame.play();
+        actionGame.engageCombat(); 
+        System.out.println("\nPuzzle Game Details:");
+        puzzleGame.displayDetails();
+        puzzleGame.play();
+        puzzleGame.solvePuzzle(); 
+    }
+}
