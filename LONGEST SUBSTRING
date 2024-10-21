@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class LongestSubstring {
+    public static int longestUniqueSubstring(String str) {
+        boolean[] seen = new boolean[256]; 
+        int maxLength = 0;
+        int left = 0; 
+        for (int right = 0; right < str.length(); right++) {
+            char currentChar = str.charAt(right); 
+            while (seen[currentChar]) {
+                seen[str.charAt(left)] = false;
+                left++;
+            }
+            seen[currentChar] = true;
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        int length = longestUniqueSubstring(input);
+        System.out.println("The length of the longest substring without repeating characters is: " + length);
+        scanner.close();
+    }
+}
