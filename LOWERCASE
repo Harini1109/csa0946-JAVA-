@@ -1,0 +1,13 @@
+public class ConvertToLowercase {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Convert the string to lowercase
+        String lowerStr = str.toLowerCase();
+
+        // Print the original and lowercase strings
+        System.out.println("Original String: " + str);
+        System.out.println("Lowercase String: " + lowerStr);
+    }
+}
