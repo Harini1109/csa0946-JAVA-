@@ -1,0 +1,16 @@
+public class RemoveCharacter {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello World";
+
+        // Character to be removed
+        char charToRemove = 'o';
+
+        // Remove the specified character
+        String modifiedStr = str.replace(Character.toString(charToRemove), "");
+
+        // Print the original and modified string
+        System.out.println("Original String: " + str);
+        System.out.println("String after removal: " + modifiedStr);
+    }
+}
