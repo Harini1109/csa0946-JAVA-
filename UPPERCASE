@@ -1,0 +1,13 @@
+public class ConvertToUppercase {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Convert the string to uppercase
+        String upperStr = str.toUpperCase();
+
+        // Print the original and uppercase strings
+        System.out.println("Original String: " + str);
+        System.out.println("Uppercase String: " + upperStr);
+    }
+}
