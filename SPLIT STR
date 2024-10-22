@@ -1,0 +1,18 @@
+public class SplitString {
+    public static void main(String[] args) {
+        // Given string
+        String str = "apple,banana,orange,grape";
+
+        // Specified delimiter (comma)
+        String delimiter = ",";
+
+        // Split the string based on the delimiter
+        String[] substrings = str.split(delimiter);
+
+        // Print the substrings
+        System.out.println("Substrings after splitting:");
+        for (String substring : substrings) {
+            System.out.println(substring);
+        }
+    }
+}
