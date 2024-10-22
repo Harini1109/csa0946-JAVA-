@@ -1,0 +1,20 @@
+public class FindIndex {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Character and substring to find
+        char ch = 'W';
+        String substring = "World";
+
+        // Find the index of the character
+        int charIndex = str.indexOf(ch);
+
+        // Find the index of the substring
+        int substringIndex = str.indexOf(substring);
+
+        // Print the results
+        System.out.println("Index of character '" + ch + "': " + charIndex);
+        System.out.println("Index of substring \"" + substring + "\": " + substringIndex);
+    }
+}
