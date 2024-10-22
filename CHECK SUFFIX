@@ -1,0 +1,19 @@
+public class CheckSuffix {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Specific suffix to check
+        String suffix = "World!";
+
+        // Check if the string ends with the specified suffix
+        boolean endsWithSuffix = str.endsWith(suffix);
+
+        // Print the result
+        if (endsWithSuffix) {
+            System.out.println("The string \"" + str + "\" ends with the suffix \"" + suffix + "\".");
+        } else {
+            System.out.println("The string \"" + str + "\" does not end with the suffix \"" + suffix + "\".");
+        }
+    }
+}
