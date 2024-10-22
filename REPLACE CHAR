@@ -1,0 +1,17 @@
+public class ReplaceCharacter {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Character to be replaced and the new character
+        char oldChar = 'o';
+        char newChar = 'a';
+
+        // Replace the character in the string
+        String modifiedStr = str.replace(oldChar, newChar);
+
+        // Print the original and modified strings
+        System.out.println("Original String: " + str);
+        System.out.println("Modified String: " + modifiedStr);
+    }
+}
