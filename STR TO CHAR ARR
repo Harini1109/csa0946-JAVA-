@@ -1,0 +1,15 @@
+public class StringToCharArray {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Convert the string to a char array
+        char[] charArray = str.toCharArray();
+
+        // Print the char array
+        System.out.println("The char array is: ");
+        for (char ch : charArray) {
+            System.out.print(ch + " ");
+        }
+    }
+}
