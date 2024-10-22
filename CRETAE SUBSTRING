@@ -1,0 +1,17 @@
+public class CreateSubstring {
+    public static void main(String[] args) {
+        // Given string
+        String str = "Hello, World!";
+
+        // Specify the starting and ending indices for the substring
+        int start = 7; // Start from index 7 ('W')
+        int end = 12;  // End at index 12 (exclusive)
+
+        // Create a substring
+        String substring = str.substring(start, end);
+
+        // Print the original string and the substring
+        System.out.println("Original String: " + str);
+        System.out.println("Substring: " + substring);
+    }
+}
