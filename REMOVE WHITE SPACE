@@ -1,0 +1,13 @@
+public class RemoveWhiteSpaces {
+    public static void main(String[] args) {
+        // Given string
+        String str = "  Hello,   World!  ";
+
+        // Remove all spaces
+        String noSpacesStr = str.replace(" ", "");
+
+        // Print the original and modified strings
+        System.out.println("Original String: \"" + str + "\"");
+        System.out.println("String without spaces: \"" + noSpacesStr + "\"");
+    }
+}
