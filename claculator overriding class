@@ -1,0 +1,34 @@
+class R192221109 {
+    public double add(double a, double b) {
+        return a + b;
+    }
+    public double subtract(double a, double b) {
+        return a - b;
+    }
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+    public double divide(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Error: Division by zero.");
+            return 0;
+        }
+    }
+    public static void main(String[] args) {
+        R192221109 basicCalculator = new R192221109();
+        System.out.println("Basic Calculator - Add: " + basicCalculator.add(10, 5));
+        System.out.println("Basic Calculator - Subtract: " + basicCalculator.subtract(10, 5));
+        System.out.println("Basic Calculator - Multiply: " + basicCalculator.multiply(10, 5));
+        System.out.println("Basic Calculator - Divide: " + basicCalculator.divide(10, 5));
+        ScientificCalculator sciCalculator = new ScientificCalculator();
+        System.out.println("Scientific Calculator - Multiply (Complex): " + sciCalculator.multiply(10, 5));
+    }
+}
+class ScientificCalculator extends R192221109 {
+    @Override
+    public double multiply(double a, double b) {
+        return (Math.pow(a, 2) * Math.pow(b, 2));
+    }
+}
