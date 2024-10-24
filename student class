@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+class R192221109 {
+    private String name;
+    private String idNumber;
+    private ArrayList<Integer> grades;
+    public R192221109(String name, String idNumber, ArrayList<Integer> grades) {
+        this.name = name;
+        this.idNumber = idNumber;
+        this.grades = grades;
+    }
+
+    public double calculateAverage() {
+        int sum = 0;
+        for (int grade : grades) {
+            sum += grade;
+        }
+        return sum / (double) grades.size();
+    }
+    public String getLetterGrade() {
+        double average = calculateAverage();
+
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+    public void displayStudentDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("ID Number: " + idNumber);
+        System.out.println("Average Grade: " + calculateAverage());
+        System.out.println("Letter Grade: " + getLetterGrade());
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> gradesList = new ArrayList<>();
+        gradesList.add(85);
+        gradesList.add(92);
+        gradesList.add(78);
+        gradesList.add(88);
+        R192221109 student = new R192221109("John Doe", "R192221109", gradesList);
+        student.displayStudentDetails();
+    }
+}
