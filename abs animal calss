@@ -1,0 +1,34 @@
+public class R192221109 {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        Animal myCat = new Cat();
+        myDog.eat();
+        myDog.sleep();
+        myCat.eat();
+        myCat.sleep();
+    }
+}
+abstract class Animal {
+    abstract void eat();
+    abstract void sleep();
+}
+class Dog extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Dog is eating bones.");
+    }
+    @Override
+    void sleep() {
+        System.out.println("Dog is sleeping in its kennel.");
+    }
+}
+class Cat extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Cat is eating fish.");
+    }
+    @Override
+    void sleep() {
+        System.out.println("Cat is sleeping on the couch.");
+    }
+}
