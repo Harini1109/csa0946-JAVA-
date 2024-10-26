@@ -1,0 +1,61 @@
+import java.time.LocalDate;
+class Forecast {
+    protected LocalDate date;
+    protected double temperature;
+    public Forecast(LocalDate date, double temperature) {
+        this.date = date;
+        this.temperature = temperature;
+    }
+    public void displayForecast() {
+        System.out.println("Date: " + date);
+        System.out.println("Temperature: " + temperature + "°C");
+    }
+    public void predictWeather() {
+        System.out.println("Weather prediction is general.");
+    }
+}
+class SunnyForecast extends Forecast {
+    private int uvIndex;
+    public SunnyForecast(LocalDate date, double temperature, int uvIndex) {
+        super(date, temperature);
+        this.uvIndex = uvIndex;
+    }
+    @Override
+    public void predictWeather() {
+        System.out.println("The weather will be sunny with a UV index of " + uvIndex + ".");
+    }
+    @Override
+    public void displayForecast() {
+        super.displayForecast();
+        System.out.println("UV Index: " + uvIndex);
+    }
+}
+class RainyForecast extends Forecast {
+    private double rainfall; 
+    public RainyForecast(LocalDate date, double temperature, double rainfall) {
+        super(date, temperature);
+        this.rainfall = rainfall;
+    }
+    @Override
+    public void predictWeather() {
+        System.out.println("The weather will be rainy with expected rainfall of " + rainfall + " mm.");
+    }
+    @Override
+    public void displayForecast() {
+        super.displayForecast();
+        System.out.println("Expected Rainfall: " + rainfall + " mm");
+    }
+}
+public class R192221109 {
+    public static void main(String[] args) {
+        Forecast sunny = new SunnyForecast(LocalDate.of(2024, 10, 27), 28.0, 8);
+        System.out.println("Sunny Forecast:");
+        sunny.displayForecast();
+        sunny.predictWeather();
+        System.out.println();
+        Forecast rainy = new RainyForecast(LocalDate.of(2024, 10, 28), 22.0, 15.5);
+        System.out.println("Rainy Forecast:");
+        rainy.displayForecast();
+        rainy.predictWeather();
+    }
+}
