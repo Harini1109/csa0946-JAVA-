@@ -1,0 +1,74 @@
+// Parent class Menu
+class Menu {
+    protected String name;
+    protected double price;
+    protected boolean isOrdered;
+    public Menu(String name, double price) {
+        this.name = name;
+        this.price = price;
+        this.isOrdered = false;
+    }
+    public void displayDetails() {
+        System.out.println("Item: " + name + " | Price: $" + price);
+    }
+    public void orderItem() {
+        if (!isOrdered) {
+            isOrdered = true;
+            System.out.println(name + " has been ordered.");
+        } else {
+            System.out.println(name + " is already ordered.");
+        }
+    }
+
+    public void serveItem() {
+        if (isOrdered) {
+            System.out.println(name + " is served.");
+            isOrdered = false;  // Reset after serving
+        } else {
+            System.out.println(name + " was not ordered.");
+        }
+    }
+}
+class Appetizer extends Menu {
+    private boolean isSpicy;
+    public Appetizer(String name, double price, boolean isSpicy) {
+        super(name, price);
+        this.isSpicy = isSpicy;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Spicy: " + (isSpicy ? "Yes" : "No"));
+    }
+}
+class Entree extends Menu {
+    private boolean isVegetarian;
+
+    public Entree(String name, double price, boolean isVegetarian) {
+        super(name, price);
+        this.isVegetarian = isVegetarian;
+    }
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Vegetarian: " + (isVegetarian ? "Yes" : "No"));
+    }
+}
+
+public class R192221109 {
+    public static void main(String[] args) {
+        
+        Menu appetizer = new Appetizer("Spring Rolls", 5.99, true);
+        System.out.println("Appetizer Details:");
+        appetizer.displayDetails();
+        appetizer.orderItem();
+        appetizer.serveItem();
+
+        System.out.println();
+        Menu entree = new Entree("Vegetable Stir Fry", 12.99, true);
+        System.out.println("Entree Details:");
+        entree.displayDetails();
+        entree.orderItem();
+        entree.serveItem();
+    }
+}
