@@ -1,0 +1,95 @@
+// Parent class Vehicle
+class Vehicle {
+    protected String make;
+    protected String model;
+    protected boolean isRented;
+
+    // Constructor to initialize make and model
+    public Vehicle(String make, String model) {
+        this.make = make;
+        this.model = model;
+        this.isRented = false;
+    }
+
+    // Method to display vehicle details
+    public void displayDetails() {
+        System.out.println("Make: " + make + ", Model: " + model);
+    }
+
+    // Method to rent the vehicle
+    public void rentVehicle() {
+        if (!isRented) {
+            isRented = true;
+            System.out.println("The vehicle has been rented.");
+        } else {
+            System.out.println("The vehicle is already rented.");
+        }
+    }
+
+    // Method to return the vehicle
+    public void returnVehicle() {
+        if (isRented) {
+            isRented = false;
+            System.out.println("The vehicle has been returned.");
+        } else {
+            System.out.println("The vehicle was not rented.");
+        }
+    }
+}
+
+// Child class Sedan
+class Sedan extends Vehicle {
+    private boolean luxuryPackage;
+
+    // Constructor to initialize make, model, and luxury package
+    public Sedan(String make, String model, boolean luxuryPackage) {
+        super(make, model);
+        this.luxuryPackage = luxuryPackage;
+    }
+
+    // Display sedan details, including luxury package status
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Luxury Package: " + (luxuryPackage ? "Yes" : "No"));
+    }
+}
+
+// Child class SUV
+class SUV extends Vehicle {
+    private boolean fourWheelDrive;
+
+    // Constructor to initialize make, model, and four-wheel drive option
+    public SUV(String make, String model, boolean fourWheelDrive) {
+        super(make, model);
+        this.fourWheelDrive = fourWheelDrive;
+    }
+
+    // Display SUV details, including four-wheel drive status
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Four-Wheel Drive: " + (fourWheelDrive ? "Yes" : "No"));
+    }
+}
+
+// Main class R192221109
+public class R192221109 {
+    public static void main(String[] args) {
+        // Creating a Sedan object
+        Vehicle sedan = new Sedan("Toyota", "Camry", true);
+        System.out.println("Sedan Details:");
+        sedan.displayDetails();
+        sedan.rentVehicle();
+        sedan.returnVehicle();
+
+        System.out.println();
+
+        // Creating an SUV object
+        Vehicle suv = new SUV("Ford", "Explorer", true);
+        System.out.println("SUV Details:");
+        suv.displayDetails();
+        suv.rentVehicle();
+        suv.returnVehicle();
+    }
+}
