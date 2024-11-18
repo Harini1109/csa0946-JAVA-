@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class R192221109 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the base number: ");
+        double base = scanner.nextDouble();
+        System.out.print("Enter the exponent: ");
+        int exponent = scanner.nextInt();
+        double result = 1;
+        if (exponent < 0) {
+            base = 1 / base;  
+            exponent = -exponent;  
+        }
+        for (int i = 1; i <= exponent; i++) {
+            result *= base;
+        }
+        System.out.println("The result of " + base + " raised to the power of " + exponent + " is: " + result);
+
+        scanner.close();
+    }
+}
