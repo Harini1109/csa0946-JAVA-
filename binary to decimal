@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class R192221109 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a binary number: ");
+        String binaryStr = scanner.nextLine();
+        for (char c : binaryStr.toCharArray()) {
+            if (c != '0' && c != '1') {
+                System.out.println("Invalid binary number. Please enter only 0s and 1s.");
+                return;  
+            }
+        }
+        int decimalValue = 0;
+        int length = binaryStr.length();
+        for (int i = 0; i < length; i++) {
+            char binaryChar = binaryStr.charAt(length - 1 - i);
+            if (binaryChar == '1') {
+                decimalValue += Math.pow(2, i);  
+            }
+        }
+        System.out.println("The decimal equivalent is: " + decimalValue);
+        scanner.close();
+    }
+}
