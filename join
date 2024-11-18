@@ -1,0 +1,35 @@
+public class R192221109 {
+
+    public static void main(String[] args) {
+        // Create a new thread
+        Thread thread = new Thread(new MyRunnable());
+
+        // Start the thread
+        thread.start();
+
+        try {
+            // Wait for the thread to finish before continuing with the main thread
+            thread.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted");
+        }
+
+        // Main thread continues after the thread completes
+        System.out.println("Main thread continues execution after the other thread has completed.");
+    }
+
+    // Define a simple Runnable class to demonstrate thread execution
+    static class MyRunnable implements Runnable {
+        @Override
+        public void run() {
+            System.out.println("Child thread is executing...");
+            try {
+                // Simulate some work by sleeping for 2 seconds
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println("Child thread interrupted");
+            }
+            System.out.println("Child thread finished execution.");
+        }
+    }
+}
